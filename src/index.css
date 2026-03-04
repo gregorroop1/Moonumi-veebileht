@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Oxanium:wght@200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Michroma", sans-serif;
+  --font-body: "Oxanium", sans-serif;
+  --color-agency-bg: #1f1f1f;
+}
+
+@layer base {
+  body {
+    @apply bg-agency-bg text-white antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: normal;
+  }
+}
+
+@layer utilities {
+  @keyframes rotate-glow {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-border-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-border-glow::before {
+    content: "";
+    position: absolute;
+    inset: -200%;
+    background: conic-gradient(from 0deg,
+        transparent 0deg,
+        transparent 25%,
+        #ff00ff 50%,
+        #9000ff 75%,
+        transparent 100%);
+    animation: rotate-glow 4s linear infinite;
+    z-index: -1;
+  }
+
+  .animate-border-glow::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #1f1f1f;
+    border-radius: inherit;
+    z-index: -1;
+  }
+}
