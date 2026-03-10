@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Check, RefreshCcw } from "lucide-react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 export default function App() {
   return (
@@ -22,62 +22,62 @@ export default function App() {
         </div>
 
         {/* Navigation */}
-        <nav className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-50">
-          <div className="flex items-center gap-2">
-            <img src="/Moonum_Logo.png" alt="Moonum Logo" className="h-8 w-auto object-contain" />
-          </div>
+        <nav className="absolute top-0 left-0 w-full z-50 pt-8 pb-4">
+          <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <img src="/Moonum_Logo.png" alt="Moonum Logo" className="h-8 w-auto object-contain" />
+            </div>
 
-          <div className="hidden md:flex items-center gap-8 text-[11px] font-medium opacity-60">
-            <a href="#" className="hover:opacity-100 transition-opacity">Teenused</a>
-            <a href="#" className="hover:opacity-100 transition-opacity">Portfoolio</a>
-            <a href="#" className="hover:opacity-100 transition-opacity">Meist</a>
-          </div>
+            <div className="hidden md:flex items-center gap-8 text-[11px] font-medium opacity-60">
+              <a href="#" className="hover:opacity-100 transition-opacity">Teenused</a>
+              <a href="#" className="hover:opacity-100 transition-opacity">Portfoolio</a>
+              <a href="#" className="hover:opacity-100 transition-opacity">Meist</a>
+            </div>
 
-          <button className="px-7 py-3 text-white rounded-full text-xs font-semibold animate-border-glow transition-all">
-            Kontakt
-          </button>
+            <button className="px-7 py-3 text-white rounded-full text-xs font-semibold animate-border-glow transition-all">
+              Kontakt
+            </button>
+          </div>
         </nav>
 
         {/* Hero Content */}
-        <div className="container mx-auto px-6 pt-100 pb-10 h-full flex flex-col justify-between min-h-screen relative z-10">
+        <div className="container mx-auto px-4 md:px-8 h-full flex flex-col min-h-screen relative z-10">
 
-          {/* Top Section: H1 & Button */}
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <h1 className="text-2xl md:text-4xl lg:text-4xl leading-[1.1] tracking-tighter">
-                Kaasahaaravate ja praktiliste veebilehtede tegemine: muudame sinu lennukad ideed reaalsuseks.
-              </h1>
-            </motion.div>
+          {/* Top Section: H1 & Button - Vertically Centered */}
+          <div className="flex-grow flex flex-col justify-center">
+            <div className="max-w-4xl">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <h1 className="text-xl md:text-2xl lg:text-4xl leading-[1.1] tracking-tighter">
+                  Kaasahaaravate ja praktiliste veebilehtede tegemine: muudame sinu lennukad ideed reaalsuseks.
+                </h1>
+              </motion.div>
 
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="mt-10 px-8 py-4 bg-white text-black rounded-full font-semibold flex items-center gap-2 hover:bg-opacity-90 transition-all group"
-            >
-              Alusta projekti
-              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </motion.button>
+              <motion.button
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="mt-10 px-8 py-4 bg-white text-black rounded-full font-semibold flex items-center gap-2 hover:bg-opacity-90 transition-all group"
+              >
+                Alusta projekti
+                <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </motion.button>
+            </div>
           </div>
 
           {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-end gap-12">
-
-            {/* Bottom Left: Agency Tagline/Mission */}
+          <div className="flex flex-col md:flex-row justify-between items-end gap-12 pb-10">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 1 }}
               className="max-w-sm hidden md:block"
             >
-
             </motion.div>
 
-            {/* Bottom Right: H2 Card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -100,13 +100,12 @@ export default function App() {
                 </div>
               </div>
             </motion.div>
-
           </div>
         </div>
       </section>
 
       {/* Teenused & Hinnakiri Section */}
-      <section className="relative min-h-[120vh] pt-40 pb-32 px-6 overflow-hidden bg-[#1f1f1f]">
+      <section className="relative min-h-[120vh] pt-40 pb-32 overflow-hidden bg-[#1f1f1f]">
         {/* Background Heading */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0">
           <motion.h2
@@ -120,8 +119,8 @@ export default function App() {
           </motion.h2>
         </div>
 
-        <div className="container mx-auto relative z-10 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-2">
+        <div className="container mx-auto px-4 md:px-8 relative z-10 text-center relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-2 relative">
             {/* Pricing Card 1 */}
             <PricingCard
               title="Portfoolio"
@@ -198,9 +197,9 @@ function WorkflowSection() {
   });
 
   return (
-    <section ref={containerRef} className="relative py-40 px-6 bg-[#1f1f1f] text-white overflow-hidden">
+    <section ref={containerRef} className="relative py-40 bg-[#1f1f1f] text-white overflow-hidden relative">
       {/* Header */}
-      <div className="text-center mb-40 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 text-center mb-40 relative z-10">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -214,7 +213,7 @@ function WorkflowSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-3xl md:text-5xl font-bold font-heading"
+          className="text-2xl md:text-4xl font-bold font-heading"
         >
           Kuidas näeb välja meie protsess?
         </motion.h2>
@@ -228,7 +227,7 @@ function WorkflowSection() {
         />
       </div>
 
-      <div className="container mx-auto space-y-32 md:space-y-64 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 space-y-32 md:space-y-64 relative z-10">
         <WorkflowStep
           number="1"
           title="Liitu meiega"
@@ -260,7 +259,7 @@ function WorkflowSection() {
       </div>
 
       {/* Footer Revision Section */}
-      <div className="mt-64 flex flex-col items-center text-center max-w-2xl mx-auto space-y-6 px-4">
+      <div className="container mx-auto px-4 md:px-8 mt-64 flex flex-col items-center text-center max-w-2xl space-y-6 relative z-10">
         <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center opacity-40">
           <RefreshCcw className="w-5 h-5" />
         </div>
@@ -404,8 +403,8 @@ function PricingCard({ title, price, description, features, delay, isFeatured = 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
-        whileHover={{ y: -20, transition: { duration: 0.3 } }}
-        className={`relative z-10 h-full flex flex-col p-8 rounded-[40px] border border-white/10 backdrop-blur-3xl transition-all duration-500 ${isFeatured ? 'bg-white/[0.08] border-white/30' : 'bg-white/[0.03] hover:bg-white/[0.05]'
+        whileHover={{ y: -20, transition: { duration: 0.2, ease: "easeOut" } }}
+        className={`relative z-10 h-full flex flex-col p-8 rounded-[40px] border border-white/10 backdrop-blur-3xl ${isFeatured ? 'bg-white/[0.08] border-white/30' : 'bg-white/[0.03] hover:bg-white/[0.05]'
           }`}
       >
         {isFeatured && (
